@@ -1,0 +1,9 @@
+.display{
+--color: #fff;
+color: var(--color);
+font-size: 5em;
+padding-top: 5vh;
+text-shadow: 0 0 3px var(--color),
+    0 0 3px var(--color),
+    0 0 8px var(--color);
+}

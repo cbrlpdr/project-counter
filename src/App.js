@@ -1,25 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useCallback, useState } from 'react';
+import { Button } from './Components/Button';
+import { Display } from './Components/Display';
+import { Footer } from './Components/Footer';
+import { Description } from './Components/Description';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [counter, setCounter] = useState(0);
+
+    const handleCount = useCallback((num) => {
+        setCounter((c) => c + num);
+    }, []);
+
+    return (
+        <>
+            <div className="App">
+                <Display counter={counter} />
+                <Description version={'0.1'} />
+                <Button fn={handleCount} />
+                <Footer />
+            </div>
+        </>
+    );
 }
 
 export default App;
